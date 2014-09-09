@@ -9,11 +9,11 @@ RUNS=1
 universe = vanilla
 
 # define executable and copy to remote machine
-executable = -------.bat
+executable = matlabWrapper.bat
 transfer_executable = true
 
 # which files to copy back?
-transfer_output_files = --------
+transfer_output_files = dist_curv.jpg
 
 # transfer settings
 should_transfer_files = YES
@@ -21,7 +21,7 @@ when_to_transfer_output = ON_EXIT
 
 # location of input files and names of input files
 initialdir = $(RUN_DIR)
-transfer_input_files = -------
+transfer_input_files = GrainSizeDistribution.m, callGSD.m
 
 # filenames for standard output, error, and Condor log
 output = ./output/$(Process).out
