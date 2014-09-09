@@ -1,2 +1,2 @@
-matlab -nodesktop -r "callGSD"
+matlab -nodesktop -r "callGSD";exit;
 

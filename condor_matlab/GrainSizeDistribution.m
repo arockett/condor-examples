@@ -40,7 +40,7 @@ text(D60,60,['D_6_0=' num2str(D60)])
 title(['C_u=', num2str(Cu), ', C_c=', num2str(Cc)])
 
 %Save the graph as 'dist_curv.jpg' for transfer back from htcondor
-saveas(graph,'dist_curv','jpg')
+saveas(graph,'dist_curv','jpeg')
 
 hold off
 
