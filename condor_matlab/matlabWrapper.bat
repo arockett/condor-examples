@@ -1,0 +1,2 @@
+matlab -nodesktop -r "callGSD"
+
