@@ -1,0 +1,30 @@
+#
+# README File for condor_matlab example
+#
+
+This example shows how to run a matlab process on the htcondor system.
+Describe what the matlab program does.
+
+-> Start by looking at the "matlab_job.condor" file
+
+This file is the script that submits the matlab program to the htcondor 
+system. Notice how the executable passed to htcondor is a windows batch file.
+
+-> Now look at the windows batch file called "-------.bat" 
+
+The sole purpose of "----.bat" is to execute the ImageJ program from a windows
+command line. Since htcondor runs primarily on 
+windows machines, and since condor submission scripts submit an executable file
+to these machines, an easy way to pass processes to the system is through windows 
+batch files.
+
+-> Submit "matlab_job.condor"
+
+condor_submit matlab_job.condor
+
+-> Check that "matlab_job.condor" has finished running on htcondor
+
+The command  $condor_q  will check the queue and display recent and running
+jobs on the condor system. Once matlab_job.condor has finished running it should
+describe what happens and also create three files in the "output"
+directory named "0.err", "0.log", and "0.out". 
