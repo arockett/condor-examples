@@ -29,3 +29,4 @@ The command  $condor_q  will check the queue and display recent and running
 jobs on the condor system. Once java_job.condor has finished running it should
 return an image named "sl1new.tif" and also create three files in the "output"
 directory named "0.err", "0.log", and "0.out". 
+

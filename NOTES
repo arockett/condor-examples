@@ -1,0 +1,17 @@
+- run $condor_status -java to view the machines condor can run java applications on.
+	* currently $condor_status -java shows no machines
+
+- look into utilizing different condor universes
+	* java for java apps
+	* standard for more efficient use of idle computers
+		(checkpointing and remote system calls)
+	* vanilla for less restrictions than standard but no checkpointing
+	  or remote system calls
+		 Made for using a standalone executable/script
+
+- documentation for htcondor available at:
+	research.cs.wisc.edu/htcondor/manual/v8.2/index.html
+
+- documentation specifically for running java jobs on htcondor available at:
+	research.cs.wisc.edu/htcondor/manual/v8.2/2_8JavaApplications.html
+
