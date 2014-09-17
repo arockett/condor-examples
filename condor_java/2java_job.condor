@@ -1,0 +1,41 @@
+# java_job.condor
+#
+# author: Aaron Beckett
+# date:   8/25/14
+#
+
+universe = java
+
+# define executable and copy to remote machine
+# -The executable should either be the jar file containing the 
+#  entry point to the program or the .class file containing
+#  the entry point class
+executable = ij-1.45q.jar
+transfer_executable = true
+
+# Specify the entry point class as the first argument for the program
+arguments = ij.ImageJ
+
+# location of input files and names of input files
+initialdir = $(RUN_DIR)
+# use for non-jar files
+transfer_input_files = bot.tif,macro.ijm,sel1.roi,sl1.tif
+# use for jar files
+jar_files = ij-1.45q.jar,headless.jar
+
+# which files to copy back?
+transfer_output_files = sl1new.tif
+
+# transfer settings
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+# filenames for standard output, error, and Condor log
+output = ./output/$(Process).out
+error = ./output/$(Process).err
+log = ./output/$(Process).log
+
+# only run on windows cluster
+requirements = (OpSys == "WINNT51") && (Arch == "INTEL")
+
+queue
