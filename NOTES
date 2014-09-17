@@ -15,3 +15,9 @@
 - documentation specifically for running java jobs on htcondor available at:
 	research.cs.wisc.edu/htcondor/manual/v8.2/2_8JavaApplications.html
 
+- documentation for Java Support Installation available at:
+	research.cs.wisc.edu/htcondor/manual/v8.2/3_13Java_Support.html#sec:java-install
+
+(maybe useful for fixing the issue of condor not identifying which 
+computers are available for java jobs)
+
