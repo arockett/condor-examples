@@ -2,19 +2,32 @@
 # README File for condor_java example
 #
 
-This example shows how to run a java process on the htcondor system.
+This example shows how to run a java process on the HTCondor system.
 The chosen java process inputs images "sl1.tif" and "bot.tif" into ImageJ
 and returns a resulting image called "sl1new.tif". 
 
+This example contains two different ways for running a java program on HTCondor.
+     1) The first method, "java_job.condor", uses a windows batch 
+	script as a wrapper for the java program. It runs on the 
+	condor universe "vanilla".
+     2) The second method, "java_universe.condor", uses the condor universe
+	java and is the official method for running java apps in condor.
+The benefit of using the first method is that it may be easier to get working
+since a wrapper bypasses the need to pass parameters and job specifications
+through HTCondor.
+
+#
+# METHOD 1
+#
 -> Start by looking at the "java_job.condor" file
 
-This file is the script that submits the java program to the htcondor 
-system. Notice how the executable passed to htcondor is a windows batch file.
+This file is the script that submits the java program to the HTCondor 
+system. Notice how the executable passed to HTCondor is a windows batch file.
 
 -> Now look at the windows batch file called "jprogram.bat" 
 
 The sole purpose of "jprogram.bat" is to execute the ImageJ program from a windows
-command line using the specified .jar files. Since htcondor runs primarily on 
+command line using the specified .jar files. Since HTCondor runs primarily on 
 windows machines, and since condor submission scripts submit an executable file
 to these machines, an easy way to pass processes to the system is through windows 
 batch files.
@@ -23,7 +36,31 @@ batch files.
 
 condor_submit java_job.condor
 
--> Check that "java_job.condor" has finished running on htcondor
+-> Check that "java_job.condor" has finished running on HTCondor
+
+The command  $condor_q  will check the queue and display recent and running
+jobs on the condor system. Once java_job.condor has finished running it should
+return an image named "sl1new.tif" and also create three files in the "output"
+directory named "0.err", "0.log", and "0.out". 
+
+
+#
+# METHOD 2
+#
+-> Start by looking at the "java_universe.condor" file
+
+This file is the script that submits the java program to the HTCondor 
+system. Notice how the condor universe is named "java".
+
+Extensive user documentation for the condor java universe can be found at:
+
+    research.cs.wisc.edu/htcondor/manual/v8.2/2_8JavaApplications.html
+
+-> Submit "java_universe.condor"
+
+condor_submit java_job.condor
+
+-> Check that "java_universe.condor" has finished running on HTCondor
 
 The command  $condor_q  will check the queue and display recent and running
 jobs on the condor system. Once java_job.condor has finished running it should
