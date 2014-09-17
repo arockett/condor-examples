@@ -13,7 +13,7 @@ executable = matlabWrapper.bat
 transfer_executable = true
 
 # which files to copy back?
-transfer_output_files = dist_curv.jpg
+transfer_output_files = ./dist_curv.jpeg
 
 # transfer settings
 should_transfer_files = YES
