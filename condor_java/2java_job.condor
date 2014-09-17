@@ -16,6 +16,9 @@ transfer_executable = true
 # Specify the entry point class as the first argument for the program
 arguments = ij.ImageJ
 
+# Specify additional options for the JVM (java virtual machine)
+java_vm_args = -Xmx512m -Djava.awt.headless=true
+
 # location of input files and names of input files
 initialdir = $(RUN_DIR)
 # use for non-jar files
