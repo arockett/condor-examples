@@ -21,3 +21,6 @@
 (maybe useful for fixing the issue of condor not identifying which 
 computers are available for java jobs)
 
+- good tutorial for condor administrators
+	research.cs.wisc.edu/htcondor/tutorials/infn-admin/hands-on/html/
+
